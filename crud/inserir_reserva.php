@@ -36,17 +36,6 @@ $intervalo = $data1->diff( $data2 );
 
 if ($rede == 'Jardim Botânico') {
    
-	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente)");
-
-	
-	$res->bindValue(":data_entrada", $data_entrada);
-	$res->bindValue(":data_saida", $data_saida);
-	$res->bindValue(":dia_semana", $dia_semana);
-	$res->bindValue(":hotel", $hotel);
-	$res->bindValue(":cliente", $cliente);
-	
-	
-	$res->execute();
 
 	//INCREMENTA O CARTÃO FIDELIDADE AO CLIENTE;
 	$res_p = $pdo->query("SELECT * from clientes where id = '$cliente'");
@@ -61,9 +50,7 @@ if ($rede == 'Jardim Botânico') {
 
 	$res_p = $pdo->query("UPDATE clientes set cliente_fid = '$cliente_fid' where id = '$cliente'");
 	}	
-	echo "Reservado com Sucesso!! \n";
-
-	
+		
 	if ($cliente_fid >= 2){	
 		if ($dia_semana == 'Sexta' || $dia_semana == 'Sabado' || $dia_semana == "Domingo") {
 			$valor = 50 * $intervalo->d;
@@ -81,7 +68,21 @@ if ($rede == 'Jardim Botânico') {
 			echo "O valor da reserva é R$: {$valor},00";
 	}
     
+	$valor = $valor;
+	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente, valor) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente, :valor)");
 
+	
+	$res->bindValue(":data_entrada", $data_entrada);
+	$res->bindValue(":data_saida", $data_saida);
+	$res->bindValue(":dia_semana", $dia_semana);
+	$res->bindValue(":hotel", $hotel);
+	$res->bindValue(":cliente", $cliente);
+	$res->bindValue(":valor", $valor);
+	
+	
+	$res->execute();
+
+	echo "Reservado com Sucesso!! \n";
 
 }elseif ($rede == 'Mar Atlantico') {
 
@@ -91,19 +92,6 @@ if($data_entrada == ''){
 	exit();
 }
 
-	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente)");
-
-	
-	$res->bindValue(":data_entrada", $data_entrada);
-	$res->bindValue(":data_saida", $data_saida);
-	$res->bindValue(":dia_semana", $dia_semana);
-	$res->bindValue(":hotel", $hotel);
-	$res->bindValue(":cliente", $cliente);
-
-	
-	$res->execute();
-
-	
 	//INCREMENTA O CARTÃO FIDELIDADE AO CLIENTE;
 	$res_p = $pdo->query("SELECT * from clientes where id = '$cliente'");
 	$dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
@@ -117,8 +105,7 @@ if($data_entrada == ''){
 
 	$res_p = $pdo->query("UPDATE clientes set cliente_fid = '$cliente_fid' where id = '$cliente'");
 	}	
-	echo "Reservado com Sucesso!!";
-
+	
 	if ($cliente_fid >= 2){	
 		if ($dia_semana == 'Sexta' || $dia_semana == 'Sabado' || $dia_semana == "Domingo") {
 			$valor = 40 * $intervalo->d;
@@ -135,6 +122,24 @@ if($data_entrada == ''){
 			$valor = 220 * $intervalo->d;
 			echo "O valor da reserva é R$: {$valor},00";
 	}
+
+	
+	$valor = $valor;
+	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente, valor) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente, :valor)");
+
+	
+	$res->bindValue(":data_entrada", $data_entrada);
+	$res->bindValue(":data_saida", $data_saida);
+	$res->bindValue(":dia_semana", $dia_semana);
+	$res->bindValue(":hotel", $hotel);
+	$res->bindValue(":cliente", $cliente);
+	$res->bindValue(":valor", $valor);
+	
+	
+	$res->execute();
+
+	echo "Reservado com Sucesso!! \n";
+
    
 
 }elseif ($rede == 'Parque das Flores') {
@@ -146,19 +151,6 @@ if($data_entrada == ''){
         exit();
     }
 
-   
-	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente)");
-
-	
-	$res->bindValue(":data_entrada", $data_entrada);
-	$res->bindValue(":data_saida", $data_saida);
-	$res->bindValue(":dia_semana", $dia_semana);
-	$res->bindValue(":hotel", $hotel);
-	$res->bindValue(":cliente", $cliente);
-
-	
-	$res->execute();
-	
 	//INCREMENTA O CARTÃO FIDELIDADE AO CLIENTE;
 	$res_p = $pdo->query("SELECT * from clientes where id = '$cliente'");
 	$dados_p = $res_p->fetchAll(PDO::FETCH_ASSOC);
@@ -173,7 +165,6 @@ if($data_entrada == ''){
 	$res_p = $pdo->query("UPDATE clientes set cliente_fid = '$cliente_fid' where id = '$cliente'");
 	}	
 
-	echo "Reservado com Sucesso!!";
 
 	if ($cliente_fid >=2){	
 		if ($dia_semana == 'Sexta' || $dia_semana == 'Sabado' || $dia_semana == "Domingo") {
@@ -191,6 +182,23 @@ if($data_entrada == ''){
 			$valor = 110 * $intervalo->d;
 			echo "O valor da reserva é R$: {$valor},00";
 	}
+	
+	$valor = $valor;
+	$res = $pdo->prepare("INSERT into reserva (data_entrada, data_saida, dia_semana, hotel, cliente, valor) values (:data_entrada, :data_saida, :dia_semana, :hotel, :cliente, :valor)");
+
+	
+	$res->bindValue(":data_entrada", $data_entrada);
+	$res->bindValue(":data_saida", $data_saida);
+	$res->bindValue(":dia_semana", $dia_semana);
+	$res->bindValue(":hotel", $hotel);
+	$res->bindValue(":cliente", $cliente);
+	$res->bindValue(":valor", $valor);
+	
+	
+	$res->execute();
+
+	echo "Reservado com Sucesso!! \n";
+
     
 }
 

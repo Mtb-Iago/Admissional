@@ -27,6 +27,7 @@ include_once '../config/conexao.php';
                 <td>| DATA DE SAÍDA</td>
                 <td>| DIA DA ENTRADA</td>
                 <td>| ID DO CLIENTE</td>
+                <td>|VALOR DA RESERVA</td>
                 <td>DELETAR RESERVA</td>
                 
             </tr>
@@ -41,6 +42,7 @@ include_once '../config/conexao.php';
                 <td> <?php echo $v['data_saida']; ?> </td>
                 <td> <?php echo $v['dia_semana']; ?> </td>
                 <td> <?php echo $v['cliente']; ?> </td>
+                <td> <?php echo "R$:".$v['valor'].",00" ?> </td>
                 <td><b> <a style="color:red;margin:0px;padding:0px;" href="lista_reservas.php?id_exc=<?php echo $v['id']; ?> ">Excluir</a> </b></td>
 
                 

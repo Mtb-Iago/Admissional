@@ -1,4 +1,14 @@
 # testeAdmissional
+
+# Como Acessar:
+
+* ###### Faça um Fork ou clona o repósitorio
+* ###### Crie um Banco de dados no localhost com nome de *reserva_hoteis* ou mude as configurações
+  ###### em ./config/config.php
+* ###### o arquivo contendo as tabelas e colunas do bd está disponivel junto ao repósitorio
+* ###### Sugestão importe o arquivo direto no phpMyAdmin dentro do localhost        
+
+
  #### Exercício concluído em 10 horas!
  * ##### Exercício: Reserva de Hotel
 
@@ -25,14 +35,19 @@
 * #### Relacionamento de tabela
 * #### Botão de exclusão de reservas e usuarios
 * #### Cartão fidelidade do cliente, após 2 reservas o cliente ganha descontos
+* #### Validação de nome de usuário, para não haver cadastro duplo de um único cliente
+* #### O Cartão fidelidade, funciona da seguinte forma, no momento que no histórico do cliente soma 
+  #### 2 ou mais reservas ele adquiri o cartão fidelidade, e tem desconto no valor de suas reservas,
+  #### essa condição pode ser alterada para o número de reservas que o proprietário desejar.
 
 ## O que não foi feito, mais poderia implementar
 
 - [ ] Foto do cliente
 - [ ] Botão de edição de dados do cliente
 - [ ] Front-end em geral
+- [ ] Algumas validações, visto que é um exercício e o projeto não vai para produção
 
-* ### Agradecimento em especial a Leornado, que me proporcional essa oportunidade e confiou seu tempo em mim!
+* ### Agradecimento em especial a Leornado, que me proporcionou essa oportunidade e confiou seu tempo em mim!
 
 * Contatos:
 
